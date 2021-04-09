@@ -1,4 +1,5 @@
-# Getting Started with Create React App
+# seenit3
+What, Where, When you saw something. React based version!
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
