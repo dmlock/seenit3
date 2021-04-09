@@ -1,6 +1,7 @@
 export const initialState = {
     basket: [],
-    user: null
+    user: null,
+    loginError: ''
   };
   
   // Selector
@@ -45,9 +46,15 @@ export const initialState = {
       case "SET_USER":
         return {
           ...state,
-          user: action.user
+          user: action.user,
+          loginError: ''
         }
   
+      case "LOGIN_ERROR":
+        return {
+          ...state,
+          loginError: action.errorCode
+        }
       default:
         return state;
     }

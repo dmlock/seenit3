@@ -2,11 +2,20 @@ import React, { useState } from 'react';
 import './Login.css'
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "./firebase";
+import { useStateValue } from "./StateProvider";
 
 function Login() {
+    const [{ loginError }, dispatch] = useStateValue();
     const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const reportLoginError = (errorCode) => {
+        dispatch({
+         type: "LOGIN_ERROR",
+         errorCode: errorCode
+       });
+    };
 
     const signIn = e => {
         e.preventDefault();
@@ -16,8 +25,15 @@ function Login() {
             .then(auth => {
                 history.push('/')
             })
-            .catch(error => alert(error.message))
-    }
+            .catch(
+                error => 
+                {
+                    reportLoginError(error.message);
+                }
+            
+        )
+}
+
 
     const register = e => {
         e.preventDefault();
@@ -25,13 +41,19 @@ function Login() {
         auth
             .createUserWithEmailAndPassword(email, password)
             .then((auth) => {
-                // it successfully created a new user with email and password
                 if (auth) {
                     history.push('/')
                 }
             })
-            .catch(error => alert(error.message))
+            .catch(
+                    error => 
+                    {
+                        reportLoginError(error.message);
+                    }
+                
+            )
     }
+ 
 
     return (
         <div className='login'>
@@ -42,7 +64,7 @@ function Login() {
                 <form>
                     <h5>E-mail</h5>
                     <input type='text' value={email} onChange={e => setEmail(e.target.value)} />
-
+                    <span className="login__error" >{loginError}</span>
                     <h5>Password</h5>
                     <input type='password' value={password} onChange={e => setPassword(e.target.value)} />
 
