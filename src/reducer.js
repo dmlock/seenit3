@@ -1,6 +1,7 @@
 export const initialState = {
     basket: [],
     user: null,
+    registerError: '',
     loginError: ''
   };
   
@@ -47,6 +48,7 @@ export const initialState = {
         return {
           ...state,
           user: action.user,
+          registerError: '',
           loginError: ''
         }
   
@@ -55,7 +57,12 @@ export const initialState = {
           ...state,
           loginError: action.errorCode
         }
-      default:
+        case "REGISTER_ERROR":
+          return {
+            ...state,
+            registerError: action.errorCode
+          }
+        default:
         return state;
     }
   };
