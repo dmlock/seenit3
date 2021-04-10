@@ -70,11 +70,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+### Useful firebase commands
 
-##TODO
+firebase init
+firebase login
+firebase hosting:channel:deploy uat
 
- User Register Fail Validation
- User Login Fail Validation
+### TODO
+
 
  Milestone : App with basic username,password auth
  Milestone : See on mobile
