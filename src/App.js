@@ -12,7 +12,7 @@ import { useStateValue } from "./StateProvider";
 
 function App() {
 
-  const [{}, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
 
   useEffect(() => {
 
@@ -32,7 +32,7 @@ function App() {
         });
       }
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <Router>
