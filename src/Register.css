@@ -1,4 +1,4 @@
-.login {
+.register {
     background-color: white;
     height: 100vh;
     display: flex;
@@ -7,7 +7,7 @@
     align-items: center;
 }
 
-.login__logo {
+.register__logo {
     margin-top: 20px;
     margin-bottom: 20px;
     object-fit: contain;
@@ -16,7 +16,7 @@
     margin-left: auto;
   }
 
-.login__container {
+.register__container {
     width: 300px;
     height: fit-content;
     display: flex;
@@ -26,34 +26,34 @@
     padding: 20px;
 }
 
-.login__container > h1 {
+.register__container > h1 {
     font-weight: 500;
     margin-bottom: 20px;
   }
 
-.login__container > form > h5 {
+.register__container > form > h5 {
     margin-bottom: 5px;
 }
 
-.login__container > form > input {
+.register__container > form > input {
     height: 30px;
     margin-bottom: 10px;
     background-color: white;
     width: 98%;
   }
 
-.login__container > p {
+.register__container > p {
     margin-top: 15px;
     font-size: 12px;
 }
-.login__error {
+.register__error {
   display: flex;
   flex-direction: column;
   color : red;
   font-weight : 500;
 }
 
-.login__signInButton {
+  .register__registerButton {
     background: #98538d;
     border-radius: 2px;
     width: 100%;
@@ -61,12 +61,6 @@
     border: 1px solid;
     margin-top: 10px;
     border-color: #98538d #98538d #98538d;
-  }
-
-  .login__registerLink {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
   
   

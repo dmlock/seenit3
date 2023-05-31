@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./Header";
 import Home from "./Home";
 import Login from "./Login";
+import Register from "./Register";
 import Sighting from "./Sighting";
 import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
@@ -11,7 +12,7 @@ import { useStateValue } from "./StateProvider";
 
 function App() {
 
-  const [{}, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
 
   useEffect(() => {
 
@@ -31,23 +32,26 @@ function App() {
         });
       }
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <Router>
       <div className="app">
       <Header />
-        <Switch>
+      <Switch>
+        <Route path="/register">
+            <Register />
+          </Route>
         <Route path="/login">
             <Login />
-          </Route>
-           <Route path="/Sighting">
-            <Sighting />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+        </Route>
+        <Route path="/Sighting">
+          <Sighting />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
       </div>
     </Router>
   );}
